@@ -1,5 +1,3 @@
-/* Netflix-Inspired Styles */
-
 body {
     background-color: #141414;
     color: #ffffff;
@@ -12,7 +10,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 50px;
+    padding: 20px 5%;
     background: rgba(0, 0, 0, 0.8);
     position: fixed;
     width: 100%;
@@ -27,10 +25,14 @@ body {
     text-decoration: none;
 }
 
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
 .nav-links a {
     color: white;
     text-decoration: none;
-    margin-left: 20px;
     font-size: 1rem;
     transition: color 0.3s ease-in-out;
 }
@@ -150,10 +152,97 @@ body {
 }
 
 .auth-container {
-    width: 300px;
-    margin: 100px auto;
+    width: 90%;
+    max-width: 350px;
+    margin: 120px auto;
     text-align: center;
     background: rgba(0, 0, 0, 0.8);
-    padding: 20px;
+    padding: 25px;
     border-radius: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .nav-links a {
+        font-size: 0.9rem;
+    }
+
+    .auth-links .btn {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .auth-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .movie-container {
+        padding: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 1.5rem;
+    }
+
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero p {
+        font-size: 0.9rem;
+    }
+
+    .nav-links a {
+        font-size: 0.85rem;
+    }
+
+    .auth-links .btn {
+        font-size: 0.85rem;
+        padding: 8px 10px;
+    }
+
+    .movie-container {
+        padding: 20px;
+    }
+
+    .auth-container {
+        padding: 15px;
+    }
+
+    .auth-container h2 {
+        font-size: 1.5rem;
+    }
 }
