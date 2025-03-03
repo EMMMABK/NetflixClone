@@ -3,7 +3,7 @@ from django.shortcuts import render
 # Create your views here.
 
 def index(request):
-    return render(request, 'NetflixApp /index.html')
+    return render(request, 'NetflixApp/index.html')
 
 def login(request):
     return render(request, 'NetflixApp/login.html')

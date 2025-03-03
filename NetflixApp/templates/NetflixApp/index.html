@@ -6,9 +6,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'style.css' %}">
-    <title>Document</title>
+    <title>Netflix Clone</title>
 </head>
 <body>
-    
+    <header class="header">
+        <a href="#" class="logo">NETFLIX</a>
+        <nav class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">Movies</a>
+            <a href="#">TV Shows</a>
+            <a href="#">My List</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to Your Movie World</h1>
+            <p>Watch unlimited movies, TV shows, and more.</p>
+            <a href="#" class="btn">Start Watching</a>
+        </div>
+    </section>
+
+    <section class="movie-container">
+        <div class="movie-grid">
+            <div class="movie-card">
+                <img src="{% static 'movie1.jpg' %}" alt="Movie 1">
+                <div class="overlay">Movie Title</div>
+            </div>
+            <div class="movie-card">
+                <img src="{% static 'movie2.jpg' %}" alt="Movie 2">
+                <div class="overlay">Movie Title</div>
+            </div>
+            <div class="movie-card">
+                <img src="{% static 'movie3.jpg' %}" alt="Movie 3">
+                <div class="overlay">Movie Title</div>
+            </div>
+        </div>
+    </section>
 </body>
 </html>
