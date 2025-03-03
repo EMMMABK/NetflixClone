@@ -124,3 +124,36 @@ body {
 .movie-card:hover .overlay {
     opacity: 1;
 }
+
+.auth-links {
+    display: flex;
+    gap: 15px;
+}
+
+.auth-links .btn {
+    background-color: #e50914;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 1rem;
+    border-radius: 5px;
+    transition: background 0.3s ease-in-out;
+}
+
+.auth-links .signup-btn {
+    background-color: white;
+    color: black;
+}
+
+.auth-links .btn:hover {
+    background-color: #b20710;
+}
+
+.auth-container {
+    width: 300px;
+    margin: 100px auto;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+}
