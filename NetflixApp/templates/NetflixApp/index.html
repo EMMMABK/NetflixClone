@@ -9,49 +9,24 @@
     <title>Netflix Clone</title>
 </head>
 <body>
-    <header class="header">
-        <a href="#" class="logo">NETFLIX</a>
-        <nav class="nav-links">
-            <a href="#">Home</a>
-            <a href="#">Movies</a>
-            <a href="#">TV Shows</a>
-            <a href="#">My List</a>
+    <div class="hero">
+        <div class="overlay"></div>
+        
+        <nav class="navbar">
+            <h1 class="netflix-title">NETFLIX</h1>
+            <button class="signin-btn">Sign In</button>
         </nav>
 
-        <div class="auth-links">
-            {% if user.is_authenticated %}
-                <a href="{% url 'logout' %}" class="btn">Logout</a>
-            {% else %}
-                <a href="{% url 'login' %}" class="btn">Login</a>
-                <a href="{% url 'signup' %}" class="btn signup-btn">Sign Up</a>
-            {% endif %}
-        </div>
-    </header>
-    
+        <div class="content">
+            <h1>Unlimited movies, TV shows, and more.</h1>
+            <p>Watch anywhere. Cancel anytime.</p>
+            <p class="small-text">Ready to watch? Enter your email to create or restart your membership.</p>
 
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Welcome to Your Movie World</h1>
-            <p>Watch unlimited movies, TV shows, and more.</p>
-            <a href="#" class="btn">Start Watching</a>
+            <form class="registration-form">
+                <input type="email" placeholder="Email address" required>
+                <button type="submit">Get Started</button>
+            </form>
         </div>
-    </section>
-
-    <section class="movie-container">
-        <div class="movie-grid">
-            <div class="movie-card">
-                <img src="{% static 'movie1.jpg' %}" alt="Movie 1">
-                <div class="overlay">Movie Title</div>
-            </div>
-            <div class="movie-card">
-                <img src="{% static 'movie2.jpg' %}" alt="Movie 2">
-                <div class="overlay">Movie Title</div>
-            </div>
-            <div class="movie-card">
-                <img src="{% static 'movie3.jpg' %}" alt="Movie 3">
-                <div class="overlay">Movie Title</div>
-            </div>
-        </div>
-    </section>
+    </div>
 </body>
 </html>
