@@ -12,7 +12,7 @@ def login(request):
         if form.is_valid():
             user = form.get_user()
             login(request, user)
-            return redirect('home')
+            return redirect('index')
     else:
         form = AuthenticationForm()
     return render(request, "NetflixApp/login.html", {"form": form})
@@ -23,7 +23,7 @@ def signup(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect('home')
+            return redirect('index')
     else:
         form = UserCreationForm()
     return render(request, "NetflixApp/signup.html", {"form": form})
