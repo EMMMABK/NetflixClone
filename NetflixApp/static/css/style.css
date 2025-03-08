@@ -56,8 +56,9 @@ body {
     gap: 10px;
 }
 
-.signup-btn, 
-.login-btn {
+.signup-btn,
+.login-btn,
+.logout-btn {
     background: red;
     color: white;
     border: none;
@@ -68,11 +69,25 @@ body {
     transition: 0.3s ease-in-out;
 }
 
-.signup-btn:hover, 
-.login-btn:hover {
+.signup-btn:hover,
+.login-btn:hover,
+.logout-btn:hover {
     background: darkred;
 }
 
+.logout-btn {
+    background-color: #333;
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.logout-btn:hover {
+    background-color: #e50914;
+    transform: scale(1.05);
+}
 
 .content {
     position: relative;
@@ -95,52 +110,9 @@ body {
     margin-bottom: 15px;
 }
 
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-}
-
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 50px;
-    position: absolute;
-    width: 100%;
-}
-
-.netflix-title {
-    color: #e50914;
-    font-size: 32px;
-    font-weight: bold;
-}
-
-.auth-buttons {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.signup-btn, .login-btn, .logout-btn {
-    background-color: #e50914;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-.signup-btn:hover, .login-btn:hover, .logout-btn:hover {
-    background-color: #b20710;
-}
-
 .welcome-text {
     color: white;
+    margin-top: 10px;
     font-size: 18px;
     margin-right: 15px;
 }
@@ -150,6 +122,17 @@ body {
         font-size: 32px;
     }
     .content p {
+        font-size: 18px;
+    }
+    .auth-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    .signup-btn,
+    .login-btn,
+    .logout-btn {
+        width: 100%;
+        padding: 12px;
         font-size: 18px;
     }
 }

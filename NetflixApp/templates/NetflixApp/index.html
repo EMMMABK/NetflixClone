@@ -15,7 +15,7 @@
             <h1 class="netflix-title">NETFLIX</h1>
             <div class="auth-buttons">
                 {% if user.is_authenticated %}
-                    <span class="welcome-text">Hello, {{ user.username }}!</span>
+                    <span class="welcome-text">{{ user.username }}</span>
                     <button class="logout-btn">
                         <a style="text-decoration: none; color: white;" href="{% url 'logout' %}" onclick="logoutRedirect(event)">Logout</a>
                     </button>
