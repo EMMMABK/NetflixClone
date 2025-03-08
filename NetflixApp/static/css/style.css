@@ -58,7 +58,7 @@ body {
 
 .signup-btn,
 .login-btn,
-.logout-btn {
+.logout-btn, .get-btn {
     background: red;
     color: white;
     border: none;
@@ -67,11 +67,13 @@ body {
     border-radius: 5px;
     cursor: pointer;
     transition: 0.3s ease-in-out;
+    text-decoration: none;
 }
 
 .signup-btn:hover,
 .login-btn:hover,
-.logout-btn:hover {
+.logout-btn:hover,
+.get-btn{
     background: darkred;
 }
 
@@ -130,7 +132,8 @@ body {
     }
     .signup-btn,
     .login-btn,
-    .logout-btn {
+    .logout-btn,
+    .get-btn {
         width: 100%;
         padding: 12px;
         font-size: 18px;

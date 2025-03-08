@@ -56,3 +56,6 @@ def signup(request):
 
     else:
         return render(request, 'NetflixApp/signup.html')
+    
+def movie(request):
+    return render(request, 'NetflixApp/movie.html')

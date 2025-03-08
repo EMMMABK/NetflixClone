@@ -34,6 +34,9 @@
             <h1>Unlimited movies, TV shows, and more.</h1>
             <p>Watch anywhere. Cancel anytime.</p>
             <p class="small-text">Ready to watch? Enter your email to create or restart your membership.</p>
+            {% if user.is_authenticated %}
+                <button class="get-btn"><a href="{% url 'movie' %}">Get started</a></button>
+            {% endif %}
         </div>
     </div>
 
