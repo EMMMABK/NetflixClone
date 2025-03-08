@@ -95,8 +95,55 @@ body {
     margin-bottom: 15px;
 }
 
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+}
 
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    position: absolute;
+    width: 100%;
+}
 
+.netflix-title {
+    color: #e50914;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.auth-buttons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.signup-btn, .login-btn, .logout-btn {
+    background-color: #e50914;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.signup-btn:hover, .login-btn:hover, .logout-btn:hover {
+    background-color: #b20710;
+}
+
+.welcome-text {
+    color: white;
+    font-size: 18px;
+    margin-right: 15px;
+}
 
 @media (max-width: 768px) {
     .content h1 {

@@ -1,5 +1,4 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,8 +14,19 @@
         <nav class="navbar">
             <h1 class="netflix-title">NETFLIX</h1>
             <div class="auth-buttons">
-                <button class="signup-btn"><a style="text-decoration: none; color: white;" href="{% url 'signup' %}">Sign Up</a></button>
-                <button class="login-btn"><a style="text-decoration: none; color: white;" href="{% url 'login' %}">Login</a></button>
+                {% if user.is_authenticated %}
+                    <span class="welcome-text">Hello, {{ user.username }}!</span>
+                    <button class="logout-btn">
+                        <a style="text-decoration: none; color: white;" href="{% url 'logout' %}" onclick="logoutRedirect(event)">Logout</a>
+                    </button>
+                {% else %}
+                    <button class="signup-btn">
+                        <a style="text-decoration: none; color: white;" href="{% url 'signup' %}">Sign Up</a>
+                    </button>
+                    <button class="login-btn">
+                        <a style="text-decoration: none; color: white;" href="{% url 'login' %}">Login</a>
+                    </button>
+                {% endif %}
             </div>
         </nav>
 
@@ -26,5 +36,12 @@
             <p class="small-text">Ready to watch? Enter your email to create or restart your membership.</p>
         </div>
     </div>
+
+    <script>
+        function logoutRedirect(event) {
+            event.preventDefault();  
+            window.location.href = "{% url 'logout' %}"; 
+        }
+    </script>
 </body>
 </html>
