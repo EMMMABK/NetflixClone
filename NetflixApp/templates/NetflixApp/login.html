@@ -1,41 +1,32 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/signup.css' %}">
-    <title>Login - Netflix Clone</title>
+    <title>Netflix Login</title>
 </head>
 <body>
-    <div class="hero">
-        <div class="overlay"></div>
-
-        <nav class="navbar">
-            <h1 class="netflix-title">NETFLIX</h1>
-            <div class="auth-buttons">
-                <button class="signup-btn"><a href="{% url 'signup' %}">Sign Up</a></button>
-                <button class="login-btn"><a href="{% url 'login' %}">Login</a></button>
+    <div class="auth-container">
+        <h2>Login</h2>
+        
+        {% if messages %}
+            <div class="error-messages">
+                {% for message in messages %}
+                    <p>{{ message }}</p>
+                {% endfor %}
             </div>
-        </nav>
+        {% endif %}
+        
+        <form method="POST">
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit" class="login-btn">Login</button>
+        </form>
 
-        <div class="content">
-            <h2>Log In</h2>
-            <form method="POST">
-                {% csrf_token %}
-                <input type="text" id="username" name="username" placeholder="Username" required>
-                <input type="password" id="password" name="password" placeholder="Password" required>
-                <button type="submit" class="login-btn">Log In</button>
-            </form>
-            {% if messages %}
-                <div class="error-messages">
-                    {% for message in messages %}
-                        <p class="error">{{ message }}</p>
-                    {% endfor %}
-                </div>
-            {% endif %}
-        </div>
+        <p>Don't have an account? <a href="{% url 'signup' %}">Sign Up</a></p>
     </div>
 </body>
 </html>
