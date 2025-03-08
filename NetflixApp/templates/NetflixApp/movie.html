@@ -8,6 +8,58 @@
     <title>Movies</title>
 </head>
 <body>
-    
+    <header>Movie Collection</header>
+    <main>
+        {% if movies %}
+            {% for movie in movies %}
+                <div class="movie-card" 
+                    onclick="showmodal(this)"
+                    data-title="{{movie.title}}"
+                    data-description="{{movie.description}}"
+                    data-release-date="{{movie.release_date|date:'Y'}}"
+                    data-genre="{{movie.get_genre_display}}"
+                    data-length="{{movie.length}}"
+                    data-image-card-url="{{movie.image_card.url}}"
+                    data-image-cover-url="{{movie.image_cover.url}}"
+                    data-video-url="/movie/{{movie.uu_id}}"
+                    style="background-image: url('{{movie.image_card.url}}');">
+                </div>        
+            {% endfor %}
+        {% else %}
+            <div class="no-movies-message">
+                <p>No movies available at the moment. Please check back later.</p>
+            </div>
+        {% endif %}
+    </main>
+    <script>
+        function showmodal(card) {
+            var modal = document.createElement('div');
+            modal.classList.add('modal');
+            modal.innerHTML = `
+                <div class="modal-content">
+                    <button class="close-btn" onclick="closeModal()">X</button>
+                    <div class="modal-body">
+                        <img id="movie-cover" src="${card.dataset.imageCoverUrl}" alt="Movie Cover">
+                        <div>
+                            <h2 id="movie-title">${card.dataset.title}</h2>
+                            <p id="movie-description">${card.dataset.description}</p>
+                            <p id="movie-release-year">Release Year: ${card.dataset.releaseDate}</p>
+                            <p id="movie-genre">Genre: ${card.dataset.genre}</p>
+                            <p id="movie-length">Length: ${card.dataset.length} mins</p>
+                            <a href="${card.dataset.videoUrl}" class="watch-btn">Watch Now</a>
+                        </div>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(modal);
+        }
+
+        function closeModal() {
+            const modal = document.querySelector('.modal');
+            if (modal) {
+                modal.remove();
+            }
+        }
+    </script>
 </body>
 </html>

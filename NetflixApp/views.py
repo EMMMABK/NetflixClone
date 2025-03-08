@@ -3,7 +3,7 @@ from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
-
+from .models import *
 # Create your views here.
 
 def index(request):
@@ -58,4 +58,10 @@ def signup(request):
         return render(request, 'NetflixApp/signup.html')
     
 def movie(request):
-    return render(request, 'NetflixApp/movie.html')
+    movies = Movie.objects.all()
+
+    context = {
+        'movies': movies, 
+    }
+
+    return render(request, 'NetflixApp/movie.html', context )
