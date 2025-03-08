@@ -54,7 +54,7 @@ input::placeholder {
     color: #b3b3b3;
 }
 
-.signup-btn {
+.signup-btn, .login-btn {
     background-color: #e50914;
     color: white;
     font-size: 16px;
@@ -82,3 +82,4 @@ input::placeholder {
 .auth-container a:hover {
     text-decoration: underline;
 }
+

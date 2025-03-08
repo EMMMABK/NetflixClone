@@ -10,15 +10,20 @@ def index(request):
     return render(request, 'NetflixApp/index.html')
 
 def login(request):
-    if request.method == "POST":
-        form = AuthenticationForm(request, data=request.POST)
-        if form.is_valid():
-            user = form.get_user()
-            login(request, user)
-            return redirect('index')
-    else:
-        form = AuthenticationForm()
-    return render(request, "NetflixApp/login.html", {"form": form})
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+
+        user = auth.authenticate(username=username, password=password)
+
+        if user is not None:
+            auth.login(request, user)
+            return redirect('/')
+        else:
+            messages.info(request, 'Credentials are invalid!')
+            return redirect('login')
+        
+    return render(request, 'NetflixApp/login.html')
 
 def user_logout(request):
     logout(request)
