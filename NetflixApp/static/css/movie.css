@@ -135,3 +135,19 @@ main {
 .watch-btn:hover {
     background-color: #b20710;
 }
+
+.back-btn {
+    background-color: #e50914;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.back-btn:hover {
+    background-color: #b20710;
+}

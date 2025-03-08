@@ -8,7 +8,10 @@
     <title>Movies</title>
 </head>
 <body>
-    <header>Movie Collection</header>
+    <header>
+        <button class="back-btn" onclick="goBack()">⬅ Back</button>
+        Movie Collection
+    </header>
     <main>
         {% if movies %}
             {% for movie in movies %}
@@ -60,6 +63,11 @@
                 modal.remove();
             }
         }
+
+        function goBack() {
+            window.history.back();
+        }
+
     </script>
 </body>
 </html>

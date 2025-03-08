@@ -3,6 +3,7 @@ from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from .models import *
 # Create your views here.
 
@@ -56,7 +57,8 @@ def signup(request):
 
     else:
         return render(request, 'NetflixApp/signup.html')
-    
+
+@login_required(login_url='login')
 def movie(request):
     movies = Movie.objects.all()
 
