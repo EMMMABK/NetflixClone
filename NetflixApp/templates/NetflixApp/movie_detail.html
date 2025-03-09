@@ -26,9 +26,9 @@
             </div>
             
             <div class="movie-video">
-                {% if movie.video_file %}
+                {% if movie.video %}
                     <video controls width="100%">
-                        <source src="{{ movie.video_file.url }}" type="video/mp4">
+                        <source src="{{ movie.video.url }}" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                 {% else %}
