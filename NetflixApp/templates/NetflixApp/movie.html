@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/movie.css' %}">
+    <title>Movies</title>
+</head>
+<body>
+    <header>
+        <button class="back-btn">
+            <a style="text-decoration: none; color: white;" href="{% url 'index' %}">⬅ Back</a>
+        </button>
+        Movie Collection
+        <input type="text" id="searchInput" placeholder="Search movies..." onkeyup="searchMovies()">
+    </header>
+    
+    <main>
+        {% if movies %}
+            {% for movie in movies %}
+                <div class="movie-card" 
+                    data-title="{{ movie.title }}" 
+                    onclick="redirectToMovie('{{ movie.uu_id }}')"
+                    style="background-image: url('{{ movie.image_card.url }}');">
+                </div>        
+            {% endfor %}
+        {% else %} 
+            <div class="no-movies-message">
+                <p>No movies available at the moment. Please check back later.</p>
+            </div>
+        {% endif %}
+
+    </main>
+    <script>
+        function redirectToMovie(uuId) {
+            if (uuId) {
+                window.location.href = `/movie/${uuId}/`;
+            } else {
+                alert("Error: Movie ID is missing.");
+            }
+        }
+
+        function searchMovies() {
+            let input = document.getElementById("searchInput").value.toLowerCase();
+            let movies = document.querySelectorAll(".movie-card");
+
+            movies.forEach(movie => {
+                let title = movie.getAttribute("data-title").toLowerCase();
+                if (title.includes(input)) {
+                    movie.style.display = "block";  // Показываем фильм, если название совпадает
+                } else {
+                    movie.style.display = "none";  // Скрываем фильм, если название не совпадает
+                }
+            });
+        }
+    </script>
+</body>
+</html>
