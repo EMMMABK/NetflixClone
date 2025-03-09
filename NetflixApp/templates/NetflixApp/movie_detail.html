@@ -9,7 +9,9 @@
 </head>
 <body>
     <header>
-        <button class="back-btn"><a style="text-decoration: none; color: white;" href="{% url 'movie' %}">⬅ Back</a></button>
+        <button class="back-btn">
+            <a style="text-decoration: none; color: white;" href="{% url 'movie' %}">⬅ Back</a>
+        </button>
         <h1>{{ movie.title }}</h1>
     </header>
 
@@ -27,15 +29,44 @@
             
             <div class="movie-video">
                 {% if movie.video %}
-                    <video controls width="100%">
-                        <source src="{{ movie.video.url }}" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
+                    <button class="watch-btn" onclick="openModal()">Watch Now</button>
                 {% else %}
                     <p>No video available.</p>
                 {% endif %}
             </div>
         </div>
     </main>
+
+    <div id="videoModal" class="modal">
+        <span class="close-btn" onclick="closeModal()">✖</span>
+        <div class="modal-content">
+            <video id="moviePlayer" controls>
+                <source src="{{ movie.video.url }}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+
+
+    <script>
+        function openModal() {
+            let modal = document.getElementById("videoModal");
+            let video = document.getElementById("moviePlayer");
+
+            modal.style.display = "flex";
+            document.body.style.overflow = "hidden"; 
+            video.play();
+        }
+
+        function closeModal() {
+            let modal = document.getElementById("videoModal");
+            let video = document.getElementById("moviePlayer");
+
+            video.pause();
+            video.currentTime = 0;
+            modal.style.display = "none";
+            document.body.style.overflow = "auto"; 
+        }
+    </script>
 </body>
 </html>
