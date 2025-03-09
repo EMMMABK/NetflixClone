@@ -9,7 +9,7 @@
 </head>
 <body>
     <header>
-        <button class="back-btn" onclick="goBack()">⬅ Back</button>
+        <button class="back-btn"><a style="text-decoration: none; color: white;" href="{% url 'movie' %}">⬅ Back</a></button>
         <h1>{{ movie.title }}</h1>
     </header>
 
@@ -30,11 +30,5 @@
             </div>
         </div>
     </main>
-
-    <script>
-        function goBack() {
-            window.history.back();
-        }
-    </script>
 </body>
 </html>
