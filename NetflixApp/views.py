@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.models import User, auth
@@ -67,3 +67,7 @@ def movie(request):
     }
 
     return render(request, 'NetflixApp/movie.html', context )
+
+def movie_detail(request, uu_id):
+    movie = get_object_or_404(Movie, uu_id=uu_id)
+    return render(request, 'NetflixApp/movie_detail.html', {'movie': movie})

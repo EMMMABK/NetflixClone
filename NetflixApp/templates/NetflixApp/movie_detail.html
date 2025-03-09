@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/movie.css' %}">
+    <title>{{ movie.title }}</title>
+</head>
+<body>
+    <header>
+        <button class="back-btn" onclick="goBack()">⬅ Back</button>
+        <h1>{{ movie.title }}</h1>
+    </header>
+
+    <main>
+        <div class="movie-details">
+            <div class="movie-info">
+                <img src="{{ movie.image_cover.url }}" alt="Movie Cover" class="movie-cover">
+                <div class="movie-description">
+                    <p><strong>Release Year:</strong> {{ movie.release_date|date:'Y' }}</p>
+                    <p><strong>Genre:</strong> {{ movie.get_genre_display }}</p>
+                    <p><strong>Length:</strong> {{ movie.length }} mins</p>
+                    <p><strong>Description:</strong> {{ movie.description }}</p>
+                </div>
+            </div>
+            
+            <div class="movie-video">
+                <a href="{{ movie.video_url }}" class="watch-btn" target="_blank">Watch Now</a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>
