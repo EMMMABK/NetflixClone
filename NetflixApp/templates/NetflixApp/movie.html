@@ -9,7 +9,7 @@
 </head>
 <body>
     <header>
-        <button class="back-btn" onclick="goBack()">⬅ Back</button>
+        <button class="back-btn"><a style="text-decoration: none; color: white;" href="{% url 'index' %}">⬅ Back</a></button>
         Movie Collection
     </header>
     <main>
@@ -33,10 +33,6 @@
             } else {
                 alert("Error: Movie ID is missing.");
             }
-        }
-
-        function goBack() {
-            window.history.back();
         }
     </script>
 </body>

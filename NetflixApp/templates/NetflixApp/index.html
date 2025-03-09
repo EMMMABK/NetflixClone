@@ -35,7 +35,7 @@
             <p>Watch anywhere. Cancel anytime.</p>
             <p class="small-text">Ready to watch? Enter your email to create or restart your membership.</p>
             {% if user.is_authenticated %}
-                <button class="get-btn" style="text-decoration: none; color: white;"><a href="{% url 'movie' %}">Get started</a></button>
+                <button class="get-btn"><a style="text-decoration: none; color: white;" href="{% url 'movie' %}">Get started</a></button>
             {% endif %}
         </div>
     </div>

@@ -15,7 +15,7 @@ header {
 
 main {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Responsive grid */
     gap: 20px;
     padding: 20px;
     margin: 0 10px;

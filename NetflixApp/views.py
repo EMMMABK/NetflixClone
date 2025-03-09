@@ -68,6 +68,7 @@ def movie(request):
 
     return render(request, 'NetflixApp/movie.html', context )
 
+@login_required(login_url='login')
 def movie_detail(request, uu_id):
     movie = get_object_or_404(Movie, uu_id=uu_id)
     return render(request, 'NetflixApp/movie_detail.html', {'movie': movie})
