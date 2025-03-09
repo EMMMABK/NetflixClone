@@ -26,7 +26,14 @@
             </div>
             
             <div class="movie-video">
-                <a href="{{ movie.video_url }}" class="watch-btn" target="_blank">Watch Now</a>
+                {% if movie.video_file %}
+                    <video controls width="100%">
+                        <source src="{{ movie.video_file.url }}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                {% else %}
+                    <p>No video available.</p>
+                {% endif %}
             </div>
         </div>
     </main>
